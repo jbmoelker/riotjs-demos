@@ -1,0 +1,23 @@
+{
+  "name": "riotjs-demos",
+  "version": "1.0.0",
+  "description": "Companion to the [RiotJS Style Guide](https://github.com/voorhoede/riotjs-style-guide).",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server './src/' -c-1 -o -p 33667",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbmoelker/riotjs-demos.git"
+  },
+  "author": "Jasper Moelker <jasper@voorhoede.nl> (https://voorhoede.nl/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbmoelker/riotjs-demos/issues"
+  },
+  "homepage": "https://github.com/jbmoelker/riotjs-demos#readme",
+  "devDependencies": {
+    "http-server": "0.9.0"
+  }
+}
