@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="https://cdn.rawgit.com/leongersen/noUiSlider/master/distribute/nouislider.min.css">
+<script src="https://cdn.rawgit.com/leongersen/noUiSlider/master/distribute/nouislider.min.js"></script>
 <script type="riot/tag" src="./range-slider.tag.html"></script>
+<script src="https://cdn.jsdelivr.net/riot/2.3.16/riot+compiler.min.js"></script>
 
 <demo aria-label="Range slider with only min & max">
     <range-slider min="0" max="100" />
@@ -13,8 +15,25 @@
     <range-slider values="[20, 80]" min="0" max="100" step="5" />
 </demo>
 
-<script src="https://cdn.jsdelivr.net/riot/2.3.16/riot+compiler.min.js"></script>
-<script src="https://cdn.rawgit.com/leongersen/noUiSlider/master/distribute/nouislider.min.js"></script>
+<demo aria-label="Range slider with inputs updating on-slide">
+    <range-slider-inputs min="0" max="100" />
+    <script>
+    // note: this tag module is defined inline here just to demo the `on-slide` option
+    riot.tag('range-slider-inputs',
+        '<range-slider min="{ opts.min }" max="{ opts.max }" on-slide="{ updateInputs }"></range-slider>' +
+        '<input class="demo-min" name="min" readonly value="0">' +
+        '<input class="demo-max" name="max" readonly value="100" style="float:right;">',
+        function(opts) {
+            var tag = this;
+            tag.updateInputs = function (values) {
+                tag.min.value = values[0];
+                tag.max.value = values[1];
+            };
+        }
+    );
+    </script>
+</demo>
+
 <script>
     riot.tag('demo', '<yield/>');
     riot.mount('demo');

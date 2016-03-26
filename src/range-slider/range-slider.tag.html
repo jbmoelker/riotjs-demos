@@ -5,16 +5,30 @@
         var tag = this;
         var slider;
 
-        tag.on('mount', onMount);
+        tag.on('mount', createSlider);
         tag.on('update', onUpdate);
 
-        function onMount () {
-            var element = tag.root.querySelector('[data-slider]');
-            slider = noUiSlider.create(element, sliderOptions(opts));
+        function onUpdate() {
+            createSlider();
+            slider.updateOptions(sliderOptions(opts));
         }
 
-        function onUpdate() {
-            slider.updateOptions(sliderOptions(opts));
+        function createSlider () {
+            if (slider) { return; }
+
+            var element = tag.root.querySelector('[data-slider]');
+            slider = noUiSlider.create(element, sliderOptions(opts));
+
+            slider.on('slide', function(values, handle) {
+                if (typeof opts.onSlide === 'function') {
+                    opts.onSlide(values, handle);
+                }
+            });
+            slider.on('end', function(values, handle) {
+                if (typeof opts.onEnd === 'function') {
+                    opts.onEnd(values, handle);
+                }
+            });
         }
 
         function sliderOptions (opts) {
