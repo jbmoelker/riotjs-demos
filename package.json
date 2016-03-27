@@ -8,7 +8,8 @@
     "build:tags": "riot --ext tag.html src/ dist/tags.js",
     "build:min": "uglifyjs dist/tags.js --compress --mangle --output dist/tags.min.js --source-map dist/tags.min.js.map",
     "start": "http-server './src/' -c-1 -o -p 33667",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:eslint",
+    "test:eslint": "eslint src/**/*.tag.html"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
   },
   "homepage": "https://github.com/jbmoelker/riotjs-demos#readme",
   "devDependencies": {
+    "eslint": "2.5.1",
+    "eslint-plugin-html": "1.4.0",
     "http-server": "0.9.0",
     "riot": "2.3.17",
     "uglify-js": "2.6.2"
