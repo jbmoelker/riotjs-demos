@@ -17,7 +17,7 @@
             if (slider) { return; }
 
             var element = tag.root.querySelector('[data-slider]');
-            slider = noUiSlider.create(element, sliderOptions(opts));
+            slider = window.noUiSlider.create(element, sliderOptions(opts));
 
             slider.on('slide', function(values, handle) {
                 if (typeof opts.onSlide === 'function') {

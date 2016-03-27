@@ -24,19 +24,19 @@
         this.edit = edit;
         this.toggle = toggle;
 
-        function add (e) {
+        function add () {
             if (tag.text.length) {
                 tag.items.push({ title: tag.text });
                 tag.text = tag.input.value = '';
             }
         }
 
-        function edit (e) {
-            tag.text = e.target.value;
+        function edit (event) {
+            tag.text = event.target.value;
         }
 
-        function toggle (e) {
-            var item = e.item.item;
+        function toggle (event) {
+            var item = event.item.item;
             item.done = !item.done;
             return true;
         }

@@ -26,7 +26,8 @@ This module is based on the [`<todo>` example in the RiotJS docs](http://riotjs.
 * Put tag props and methods on top (`tag.add = add;` etc.).
 * Add `tag.text = ""` to explicitely show `text` is available on the tag.
 * Remove "fake ES6 syntax" (`add(e) {}` -> `function add(e) {}`).
-* Remove unused `this.disabled = true`.
+* Remove unused `this.disabled = true` and unused `e` parameter in `add()`.
+* Renamed event parameter name from `e` to `event`.
 * Default `this.items` to empty list (`[]`) to allow empty todo app.
 * Put HTML attribute values between double quotes (`attr="value"`).
 * Use `todo-app` as namespace for module styles in `todo-app.css`.
