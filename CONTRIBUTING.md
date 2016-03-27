@@ -26,7 +26,7 @@ And naturally the demo must be in [RiotJS Style Guide](https://github.com/voorho
 
 Development requires [Node.js](http://nodejs.org/) and [npm](https://npmjs.org/).
 
-After installing dependencies using `npm install` the following scripts are available:
+After installing dependencies (run `npm install`) the following scripts are available:
 
 `npm run ...` | Description
 ---|---
@@ -34,3 +34,5 @@ After installing dependencies using `npm install` the following scripts are avai
 `build:tags` | Compile and bundle all tag files to `dist/tags.js`.
 `build:min` | Minify tags bundle to `dist/tags.min.js` plus sourcemap.
 `start` | Starts a server on `http://localhost:33667` ("demos" in T9).
+`test` | Run linter.
+`test:eslint` | Check all tag files for format and syntax errors.
