@@ -84,6 +84,8 @@ Each commit message must have a *header* and optionally a *body*. The header has
 <body>
 ```
 
+Note: you can use `npm run commit`, prompting you to fill out the git commit message step-by-step.
+
 #### Type
 Must be one of the following:
 
@@ -122,6 +124,7 @@ After installing dependencies (run `npm install`) the following scripts are avai
 `build` | Compile, bundle and minify all tag files.
 `build:tags` | Compile and bundle all tag files to `dist/tags.js`.
 `build:min` | Minify tags bundle to `dist/tags.min.js` plus sourcemap.
+`commit` | Prompts you to fill out your git commit message step-by-step.
 `start` | Starts a server on `http://localhost:33667` ("demos" in T9).
 `test` | Run linter.
 `test:eslint` | Check all tag files for format and syntax errors.
