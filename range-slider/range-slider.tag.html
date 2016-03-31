@@ -1,0 +1,60 @@
+<range-slider>
+    <div data-slider></div>
+
+    <script>
+        var tag = this;
+        var slider;
+
+        tag.on('mount', createSlider);
+        tag.on('update', onUpdate);
+
+        function onUpdate() {
+            createSlider();
+            slider.updateOptions(sliderOptions(opts));
+        }
+
+        function createSlider () {
+            if (slider) { return; }
+
+            var element = tag.root.querySelector('[data-slider]');
+            slider = window.noUiSlider.create(element, sliderOptions(opts));
+
+            slider.on('slide', function(values, handle) {
+                if (typeof opts.onSlide === 'function') {
+                    opts.onSlide(values, handle);
+                }
+            });
+            slider.on('end', function(values, handle) {
+                if (typeof opts.onEnd === 'function') {
+                    opts.onEnd(values, handle);
+                }
+            });
+        }
+
+        function sliderOptions (opts) {
+            var min = toNumber(opts.min);
+            var max = toNumber(opts.max);
+
+            return {
+                connect: true,
+                range: { min: min, max: max },
+                start: toArray(opts.values, [min, max]),
+                step: toNumber(opts.step, 0)
+            }
+        }
+
+        function toArray(value, defaultValue) {
+            if (value) {
+                return Array.isArray(value) ? value : JSON.parse(value);
+            } else {
+                return defaultValue;
+            }
+        }
+
+        function toNumber(value, defaultValue) {
+            var number = Number(value);
+            var isNumber = !isNaN(number);
+            return isNumber ? number : defaultValue;
+        }
+    </script>
+</range-slider>

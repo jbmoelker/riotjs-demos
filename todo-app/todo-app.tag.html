@@ -1,0 +1,45 @@
+<todo-app>
+
+    <h3>{ opts.title }</h3>
+
+    <ul>
+        <li each="{ item in items }">
+            <label class="{ completed: item.done }">
+                <input type="checkbox" checked="{ item.done }" onclick="{ parent.toggle }">
+                { item.title }
+            </label>
+        </li>
+    </ul>
+
+    <form onsubmit="{ add }">
+        <input name="input" value="{ text }" onkeyup="{ edit }">
+        <button disabled="{ !text }">Add #{ items.length + 1 }</button>
+    </form>
+
+    <script>
+        var tag = this;
+        this.items = opts.items || [];
+        this.text = '';
+        this.add = add;
+        this.edit = edit;
+        this.toggle = toggle;
+
+        function add () {
+            if (tag.text.length) {
+                tag.items.push({ title: tag.text });
+                tag.text = tag.input.value = '';
+            }
+        }
+
+        function edit (event) {
+            tag.text = event.target.value;
+        }
+
+        function toggle (event) {
+            var item = event.item.item;
+            item.done = !item.done;
+            return true;
+        }
+    </script>
+
+</todo-app>
