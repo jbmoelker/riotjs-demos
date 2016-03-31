@@ -1,0 +1,24 @@
+sudo: false
+language: node_js
+node_js:
+- '5.0'
+cache:
+  directories:
+  - node_modules
+branches:
+  only:
+  - master
+notifications:
+  email: false
+before_script:
+- npm prune
+script:
+- npm run build
+- npm test
+after_script:
+- bash ./scripts/deploy.sh
+env:
+  global:
+  - GH_USER: voorhoede
+  - GH_REPO: riotjs-demos
+  - secure: SQIfRWZ1B+FsV/2AKgqSsmJjakLuAXAnqzCN7sZV8qfCnkUlepHIQNAMIc4/8IRY2MrHjhHQTBLvYWQGuapf/Ujv3lgJKYPGvdptUSMCbbIBJebyDsqTUwY04oBTWrQYOhRkAn2K0vYeY5SIOlZfqS3qO3UOFpUeAZ3QD3gNV033GS8uy7y0JnO/jCtrkvoa+z6U/O6thaox0omhzu/T0dL4/Ez5C24MIUIVpbkRG5ikdSW16OpJDeQJDhfOBcEeO4NvP6DOSuJcCfkLpluyQ1w78mLY6wyybp3cEiv55Z6dt/1MO0C9xKGzo1aZXlEl2bw3AVGsGq9o8iUyz5jzP5OtEhKdV2iWWfeP5eEOJ/rAmZD3chNoH+eKQpjxUKbOjpmyYYXvD6JDq0Q151QLmiuaATSD7rpS1fLXoUkTpvstGpDRWFJYdHn2wWQyn59tt8Bl0Mg+S8oqn8dS9/nJhnXEkUIYVGdfaYW2IDE3IRNGElRwSkhy5HnCbiawKWYkeP41L9BUhxEfF+1UCsetPGGpoW0DPoe1sEm0Ofw4WA5Cv5es9wTn1brw2zPxMh+UDsBTH8LyIIyHXbqrPe17jXC0/Jv8UFr+CXANyay4Q3wLsbC96U1W5a2gGFvJrskk5AIbN0r9eR64BbGH0cZAz1OFySRT0z4lsak8gfsUDMs=
