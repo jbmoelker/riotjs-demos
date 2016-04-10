@@ -1,0 +1,15 @@
+<output-sum>
+    <output>{ sum }</output>
+
+    <script>
+        var tag = this;
+        tag.sum = 0;
+        tag.on('update', updateSum);
+
+        function updateSum() {
+            tag.sum = (opts.numbers || []).reduce(function(sum, num){
+                return sum + Number(num);
+            }, 0);
+        }
+    </script>
+</output-sum>
