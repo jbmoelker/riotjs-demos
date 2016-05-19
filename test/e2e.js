@@ -19,7 +19,11 @@ function runTests(config) {
     gulp.src('')
         .pipe(nightwatch(config))
         .on('end', closeApp)
-        .on('error', closeApp);
+        .on('error', (err) => {
+            console.error(err);
+            closeApp();
+            process.exit(1);
+        });
 }
 
 function startApp() {
