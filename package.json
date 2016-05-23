@@ -9,7 +9,8 @@
     "build:min": "uglifyjs dist/tags.js --compress --mangle --output dist/tags.min.js --source-map dist/tags.min.js.map",
     "commit": "git-cz",
     "start": "http-server './src/' -c-1 -o -p 33667",
-    "test": "npm run test:eslint",
+    "test": "npm run test:e2e && npm run test:eslint",
+    "test:e2e": "node test/e2e.js --env chrome,firefox",
     "test:eslint": "eslint src/**/*.tag.html"
   },
   "config": {
@@ -28,12 +29,18 @@
   },
   "homepage": "https://github.com/jbmoelker/riotjs-demos#readme",
   "devDependencies": {
+    "chromedriver": "2.21.2",
     "commitizen": "2.7.6",
     "cz-conventional-changelog": "1.1.5",
     "eslint": "2.5.1",
     "eslint-plugin-html": "1.4.0",
+    "gulp": "3.9.1",
+    "gulp-connect": "3.2.2",
+    "gulp-nightwatch": "0.2.9",
     "http-server": "0.9.0",
     "riot": "2.3.17",
-    "uglify-js": "2.6.2"
+    "selenium-server-standalone-jar": "2.53.0",
+    "uglify-js": "2.6.2",
+    "yargs": "4.6.0"
   }
 }

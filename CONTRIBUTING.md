@@ -126,5 +126,6 @@ After installing dependencies (run `npm install`) the following scripts are avai
 `build:min` | Minify tags bundle to `dist/tags.min.js` plus sourcemap.
 `commit` | Prompts you to fill out your git commit message step-by-step.
 `start` | Starts a server on `http://localhost:33667` ("demos" in T9).
-`test` | Run linter.
+`test` | Run end-to-end tests and lint all tag files.
+`test:e2e` | Test all tag files end-to-end in Chrome and Firefox.
 `test:eslint` | Check all tag files for format and syntax errors.
