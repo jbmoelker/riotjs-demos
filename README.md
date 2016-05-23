@@ -10,6 +10,7 @@ The purpose of the demos is to make the RiotJS Style Guide more understandable b
 
 You can [view all demos](https://voorhoede.github.io/riotjs-demos/):
 
+* **[output-sum](https://voorhoede.github.io/riotjs-demos/output-sum/output-sum.demo.html)** - calculates and displays the sum of a set of numbers.
 * **[range-slider](https://voorhoede.github.io/riotjs-demos/range-slider/range-slider.demo.html)** - with configurable min, max, step and event callbacks.
 * **[todo-app](https://voorhoede.github.io/riotjs-demos/todo-app/todo-app.demo.html)** - Riot's `<todo>` example in style guide format.
 
