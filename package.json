@@ -4,13 +4,15 @@
   "description": "Companion to the [RiotJS Style Guide](https://github.com/voorhoede/riotjs-style-guide).",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:tags && npm run build:min",
-    "build:tags": "riot --ext tag.html src/ dist/tags.js",
+    "build": "npm-run-all build:tags build:min",
+    "build:tags": "riot --modular --type none --ext tag.html src/ dist/tags.js",
     "build:min": "uglifyjs dist/tags.js --compress --mangle --output dist/tags.min.js --source-map dist/tags.min.js.map",
     "commit": "git-cz",
     "start": "http-server './src/' -c-1 -o -p 33667",
-    "test": "npm run test:eslint",
-    "test:eslint": "eslint src/**/*.tag.html"
+    "pretest": "npm run build",
+    "test": "npm-run-all test:*",
+    "test:eslint": "eslint src/**/*.tag.html",
+    "test:unit": "tape --require ./dist/tags src/**/*.test.js"
   },
   "config": {
     "commitizen": {
@@ -33,7 +35,9 @@
     "eslint": "2.5.1",
     "eslint-plugin-html": "1.4.0",
     "http-server": "0.9.0",
+    "npm-run-all": "1.7.0",
     "riot": "2.3.17",
+    "tape": "4.5.1",
     "uglify-js": "2.6.2"
   }
 }
